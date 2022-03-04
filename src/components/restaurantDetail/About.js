@@ -2,17 +2,13 @@ import { View, Text, Image } from "react-native";
 import React from "react";
 
 const restaurantInfo = {
-	name: "Pho Number One",
+	name: "Pho Number One ♥",
 	image:
-		"https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+		"https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/dewlafd9ut69o2vdosmq",
 	price: "$$",
-	reviews: "1500",
+	reviews: "500",
 	rating: 4.5,
-	categories: [
-		{ title: "Vietnamese" },
-		{ title: "Best Pho" },
-		{ title: "Noodle" },
-	],
+	categories: [{ title: "Vietnamese Cuisine" }, { title: "Noodle" }],
 };
 
 const About = () => {

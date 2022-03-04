@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, Image } from "react-native";
 import React from "react";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { Divider } from "react-native-elements";
 
 const styles = StyleSheet.create({
 	menuItemStyle: {
@@ -14,29 +15,38 @@ const styles = StyleSheet.create({
 	},
 });
 
-const RestaurantItems = ({ foods }) => {
+const RestaurantItems = ({ navigation, foods }) => {
 	return (
-		<ScrollView showsVerticalScrollIndicator={false}>
-			{foods.map((food, index) => (
-				<View key={index} style={styles.menuItemStyle}>
-					<BouncyCheckbox
-						iconStyle={{
-							borderColor: "lightgray",
-							borderRadius: 0,
-						}}
-						fillColor='green'
-					/>
-					<FoodInfo food={food} />
-					<FoodImage food={food} />
-				</View>
-			))}
-			<View style={{ height: 360 }} />
-		</ScrollView>
+		<>
+			<ScrollView showsVerticalScrollIndicator={false}>
+				{foods.map((food, index) => (
+					<View key={index}>
+						<View style={styles.menuItemStyle}>
+							<BouncyCheckbox
+								iconStyle={{
+									borderColor: "lightgray",
+									borderRadius: 0,
+								}}
+								fillColor='green'
+							/>
+							<FoodInfo food={food} />
+							<FoodImage food={food} />
+						</View>
+						<Divider
+							width={0.5}
+							orientation='vertical'
+							style={{ marginHorizontal: 20 }}
+						/>
+					</View>
+				))}
+				<View style={{ height: 450 }} />
+			</ScrollView>
+		</>
 	);
 };
 
 const FoodInfo = props => (
-	<View style={{ width: 240, justifyContent: "space-evenly" }}>
+	<View style={{ width: 220, justifyContent: "space-evenly" }}>
 		<Text style={styles.titleStyle}>{props.food.title}</Text>
 		<Text>{props.food.description}</Text>
 		<Text>{props.food.price}</Text>

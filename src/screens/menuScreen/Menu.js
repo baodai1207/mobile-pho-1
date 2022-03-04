@@ -3,6 +3,8 @@ import React from "react";
 import About from "../../components/restaurantDetail/About";
 import { Divider } from "react-native-elements";
 import RestaurantItems from "../../components/restaurantDetail/RestaurantItems";
+import BottomTabs from "../../components/BottomTabs";
+import ViewCart from "../../components/restaurantDetail/ViewCart";
 
 const foods = [
 	{
@@ -42,13 +44,17 @@ const foods = [
 	},
 ];
 
-const Menu = () => {
+const Menu = ({ navigation }) => {
 	return (
-		<View>
-			<About />
-			<Divider width={1.8} style={{ marginVertical: 20 }} />
-			<RestaurantItems foods={foods} />
-		</View>
+		<>
+			<View>
+				<BottomTabs navigation={navigation} />
+				<About />
+				<Divider width={1.8} style={{ marginVertical: 20 }} />
+				<RestaurantItems foods={foods} />
+				<ViewCart navigation={navigation} />
+			</View>
+		</>
 	);
 };
 
